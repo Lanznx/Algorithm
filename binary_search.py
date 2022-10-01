@@ -19,10 +19,12 @@ def binary_search(heights, target):
         return pivot, counter
     temp_array = heights  # initialize temp array
 
+    print(temp_array)
     print("Pivot -> ", pivot)
     print("Counter -> ", counter)
-    print("log2(n) -> ", math.log(len(heights), 2))
+    print("log2(n) -> ", int(math.log(len(heights), 2)))
     print("========================")
+    time.sleep(5)
 
     while(pivot != target):  # 如果中間的值不是我們要找的值，就繼續找
         if(pivot > target):  # 如果中間的值比我們要找的值大，就往左邊找
@@ -39,7 +41,7 @@ def binary_search(heights, target):
         print(temp_array)
         print("Pivot -> ", pivot)
         print("Counter -> ", counter)
-        print("log2(n) -> ", math.log(len(heights), 2))
+        print("log2(n) -> ", int(math.log(len(heights), 2)))
         print("========================")
         time.sleep(5)
     return pivot, counter
@@ -47,8 +49,9 @@ def binary_search(heights, target):
 
 def main():
     heights = generate_heights()
-    number = int(input("請輸入要查詢的身高: "))
-    index, counter = binary_search(heights, number)
+    target = int(input("請輸入要查詢的身高: "))
+    # 回傳 index (沒找到就回傳 -1) 和 counter (找了幾次)
+    index, counter = binary_search(heights, target)
     if(index == -1):
         print("查無此身高")
     else:
